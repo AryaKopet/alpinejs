@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pendaftaran Mahasiswa Baru - Politeknik Sampit</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+<body>
+    <div class="container" x-data="formPendaftaran()">
+        <h2>Form Pendaftaran Mahasiswa Baru - Politeknik Sampit</h2>
+        <form @submit.prevent="submitForm">
+            <div class="form-group">
+                <label for="nama">Nama Lengkap:</label>
+                <input type="text" id="nama" x-model="nama" required>
+            </div>
+            <div class="form-group">
+                <label for="tempatLahir">Tempat Lahir:</label>
+                <input type="text" id="tempatLahir" x-model="tempatLahir" required>
+            </div>
+            <div class="form-group">
+                <label for="tanggalLahir">Tanggal Lahir:</label>
+                <input type="date" id="tanggalLahir" x-model="tanggalLahir" required>
+            </div>
+            <div class="form-group">
+                <label for="jenisKelamin">Jenis Kelamin:</label>
+                <select id="jenisKelamin" x-model="jenisKelamin" required>
+                    <option value="">Pilih Jenis Kelamin</option>
+                    <option value="Laki-laki">Laki-laki</option>
+                    <option value="Perempuan">Perempuan</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="alamat">Alamat:</label>
+                <textarea id="alamat" x-model="alamat" rows="4" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="programStudi">Program Studi:</label>
+                <select id="programStudi" x-model="programStudi" required>
+                    <option value="">Pilih Program Studi</option>
+                    <option value="Teknologi Informasi">Teknologi Informasi</option>
+                    <option value="Teknik Sipil">Teknik Sipil</option>
+                    <option value="Budidaya Tanaman Perkebunan">Budidaya Tanaman Perkebunan</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="button" @click="showPreview = true">Preview</button>
+                <button type="submit">Submit</button>
+                <button type="button" style="background-color: red;"><a href="index.html" style="text-decoration: none; color: white;">Kembali</a></button>
+            </div>
+        </form>
+        <div class="preview" x-show="showPreview">
+            <h3>Pratinjau Pendaftaran:</h3>
+            <p><strong>Nama Lengkap:</strong> <span x-text="nama"></span></p>
+            <p><strong>Tempat Lahir:</strong> <span x-text="tempatLahir"></span></p>
+            <p><strong>Tanggal Lahir:</strong> <span x-text="tanggalLahir"></span></p>
+            <p><strong>Jenis Kelamin:</strong> <span x-text="jenisKelamin"></span></p>
+            <p><strong>Alamat:</strong> <span x-text="alamat"></span></p>
+            <p><strong>Program Studi:</strong> <span x-text="programStudi"></span></p>
+        </div>
+    </div>
+<script src="script.js"></script>
+</body>
+</html>
