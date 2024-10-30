@@ -1,0 +1,43 @@
+<html>
+<head>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 x-data="{ message: 'I ❤️ Alpinejs', nama: 'Arya'}" x-text="message"></h1>
+    <div x-data="{ count: 0 }">
+        <button x-on:click="count++">Increment</button>
+        <p>jumlah: <span x-text="count"></span>x</p>
+    </div><br>
+    <div x-data="{ open: false }">
+        <button @click="open = true">Hidupkan</button>
+        <button @click="open = false">Matikan</button>
+        <div x-show="open">Saya mau makan nasi</div>
+    </div><br>
+    <div x-data="{ umur: 0, placeholder: 'Masukan umur anda...'}">
+        <input type="text" x-model="umur" x-bind:placeholder="placeholder">
+        <span x-text="umur">Tahun</span>
+    </div><br>
+    <div x-data="{ angka1: 0, angka2: 0 }">
+        <input type="text" x-model.number="angka1" placeholder="Masukkan angka 1"> +
+        <input type="text" x-model.number="angka2" placeholder="Masukkan angka 2"> =
+        <span x-text="angka1 + angka2"></span>
+    </div><br>
+    <div x-data="{ angka1: 10, angka2: 10 }">
+        <select x-model.number="angka1">
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="40">40</option>
+        </select> +
+        <select x-model.number="angka2">
+            <option value="10">10</option>
+            <option value="20">20</option>
+            <option value="30">30</option>
+            <option value="40">40</option>
+        </select> =
+        <span x-text="angka1 + angka2"></span>
+    </div> <br>
+    <button class="button-bawah"><a href="daftar-mahasiswa.html" class="button">Daftar Mahasiswa</a></button>
+</body>
+</html>
